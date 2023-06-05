@@ -5,6 +5,7 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <uses-feature android:name="android.hardware.camera" />
     <uses-feature android:name="android.hardware.camera.autofocus" />
@@ -20,10 +21,37 @@
         android:theme="@style/Theme.Base"
         tools:targetApi="31">
         <activity
-            android:name=".ProfilEditActivity"
+            android:name=".PlantIdentifyActivity"
             android:exported="false" />
         <activity
-            android:name=".ProfilViewActivity"
+            android:name=".PlantActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.NewPlantActivity"
+            android:label="New Plant" />
+        <activity
+            android:name=".TakePhotoActivity"
+            android:exported="false" />
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="dev.munderstand.tp1_epsi_mspr_app.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/fileprovider_paths" />
+        </provider>
+
+        <activity
+            android:name=".activities.common.SettingsActivity"
+            android:exported="false"
+            android:label="@string/title_activity_settings" />
+        <activity
+            android:name=".activities.account.ProfilEditActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.account.ProfilViewActivity"
             android:exported="false" />
         <activity
             android:name=".DetailsBotanisteActivity"

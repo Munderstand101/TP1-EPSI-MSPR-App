@@ -15,11 +15,17 @@ import org.json.JSONObject
 import java.io.IOException
 
 class SignUpActivity : AppCompatActivity() {
+
     private lateinit var firstNameEditText: EditText
     private lateinit var lastNameEditText: EditText
     private lateinit var usernameEditText: EditText
     private lateinit var emailEditText: EditText
     private lateinit var passwordEditText: EditText
+    private lateinit var latitudeEditText: EditText
+    private lateinit var longitudeEditText: EditText
+    private lateinit var cityEditText: EditText
+    private lateinit var zipcodeEditText: EditText
+    private lateinit var addressEditText: EditText
     private lateinit var registerButton: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,6 +37,11 @@ class SignUpActivity : AppCompatActivity() {
         usernameEditText = findViewById(R.id.usernameEditText)
         emailEditText = findViewById(R.id.emailEditText)
         passwordEditText = findViewById(R.id.passwordEditText)
+        latitudeEditText = findViewById(R.id.latitudeEditText)
+        longitudeEditText = findViewById(R.id.longitudeEditText)
+        cityEditText = findViewById(R.id.cityEditText)
+        zipcodeEditText = findViewById(R.id.zipcodeEditText)
+        addressEditText = findViewById(R.id.addressEditText)
         registerButton = findViewById(R.id.registerButton)
 
         registerButton.setOnClickListener {
@@ -39,13 +50,18 @@ class SignUpActivity : AppCompatActivity() {
             val username = usernameEditText.text.toString()
             val email = emailEditText.text.toString()
             val password = passwordEditText.text.toString()
+            val latitude = latitudeEditText.text.toString().toDoubleOrNull() ?: 0.0
+            val longitude = longitudeEditText.text.toString().toDoubleOrNull() ?: 0.0
+            val city = cityEditText.text.toString()
+            val zipcode = zipcodeEditText.text.toString()
+            val address = addressEditText.text.toString()
 
             // Make API request to register user
-            register(firstName, lastName, username, email, password)
+            register(firstName, lastName, username, email, password, latitude, longitude, city, zipcode, address)
         }
     }
 
-    private fun register(firstName: String, lastName: String, username: String, email: String, password: String) {
+    private fun register(firstName: String, lastName: String, username: String, email: String, password: String, latitude: Double, longitude: Double, city: String, zipcode: String, address: String) {
         val client = OkHttpClient()
 
         val url = ApiConfig.REGISTER_ENDPOINT
@@ -56,6 +72,11 @@ class SignUpActivity : AppCompatActivity() {
         jsonBody.put("username", username)
         jsonBody.put("email", email)
         jsonBody.put("password", password)
+        jsonBody.put("latitude", latitude)
+        jsonBody.put("longitude", longitude)
+        jsonBody.put("city", city)
+        jsonBody.put("zipcode", zipcode)
+        jsonBody.put("address", address)
 
         val requestBody = RequestBody.create("application/json".toMediaTypeOrNull(), jsonBody.toString())
 
@@ -71,7 +92,6 @@ class SignUpActivity : AppCompatActivity() {
                     Toast.makeText(this@SignUpActivity, "Registration failed", Toast.LENGTH_SHORT).show()
                 }
             }
-
             override fun onResponse(call: Call, response: Response) {
                 val responseBody = response.body?.string()
 

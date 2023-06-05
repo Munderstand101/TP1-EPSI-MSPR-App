@@ -5,91 +5,150 @@
     android:layout_height="match_parent"
     android:background="@android:color/white"
     tools:context=".activities.account.SignUpActivity">
-
-    <RelativeLayout
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:padding="30dp">
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="20dp">
 
-        <androidx.cardview.widget.CardView
+        <ImageView
+            android:layout_width="265dp"
+            android:layout_height="238dp"
+            android:contentDescription="Logo"
+            android:src="@drawable/logo_base" />
+
+        <TextView
+            android:id="@+id/firstNameLabel"
+            style="@style/Theme.Base.TextView"
+            android:text="Prénom" />
+
+        <EditText
+            android:id="@+id/firstNameEditText"
+            style="@style/Theme.Base.EditText"
+            android:hint="Prénom"
+            android:inputType="text" />
+
+        <TextView
+            android:id="@+id/lastNameLabel"
+            style="@style/Theme.Base.TextView"
+            android:text="Nom de famille" />
+
+        <EditText
+            android:id="@+id/lastNameEditText"
+            style="@style/Theme.Base.EditText"
+            android:hint="Nom de famille"
+            android:inputType="text" />
+
+        <TextView
+            android:id="@+id/usernameLabel"
+            style="@style/Theme.Base.TextView"
+            android:text="Nom d'utilisateur" />
+
+        <EditText
+            android:id="@+id/usernameEditText"
+            style="@style/Theme.Base.EditText"
+            android:hint="Nom d'utilisateur"
+            android:inputType="text" />
+
+        <TextView
+            android:id="@+id/emailLabel"
+            style="@style/Theme.Base.TextView"
+            android:text="Adresse e-mail" />
+
+        <EditText
+            android:id="@+id/emailEditText"
+            style="@style/Theme.Base.EditText"
+            android:hint="Adresse e-mail"
+            android:inputType="textEmailAddress" />
+
+        <TextView
+            android:id="@+id/passwordLabel"
+            style="@style/Theme.Base.TextView"
+            android:text="Mot de passe" />
+
+        <EditText
+            android:id="@+id/passwordEditText"
+            style="@style/Theme.Base.EditText"
+            android:hint="Mot de passe"
+            android:inputType="textPassword" />
+
+        <TextView
+            android:id="@+id/latitudeLabel"
+            style="@style/Theme.Base.TextView"
+            android:text="Latitude" />
+
+        <EditText
+            android:id="@+id/latitudeEditText"
+            style="@style/Theme.Base.EditText"
+            android:hint="Latitude"
+            android:inputType="numberDecimal" />
+
+        <TextView
+            android:id="@+id/longitudeLabel"
+            style="@style/Theme.Base.TextView"
+            android:text="Longitude" />
+
+        <EditText
+            android:id="@+id/longitudeEditText"
+            style="@style/Theme.Base.EditText"
+            android:hint="Longitude"
+            android:inputType="numberDecimal" />
+
+        <TextView
+            android:id="@+id/cityLabel"
+            style="@style/Theme.Base.TextView"
+            android:text="Ville" />
+
+        <EditText
+            android:id="@+id/cityEditText"
+            style="@style/Theme.Base.EditText"
+            android:hint="Ville"
+            android:inputType="text" />
+
+        <TextView
+            android:id="@+id/zipcodeLabel"
+            style="@style/Theme.Base.TextView"
+            android:text="Code postal" />
+
+        <EditText
+            android:id="@+id/zipcodeEditText"
+            style="@style/Theme.Base.EditText"
+            android:hint="Code postal"
+            android:inputType="text" />
+
+        <TextView
+            android:id="@+id/addressLabel"
+            style="@style/Theme.Base.TextView"
+            android:text="Adresse" />
+
+        <EditText
+            android:id="@+id/addressEditText"
+            style="@style/Theme.Base.EditText"
+            android:hint="Adresse"
+            android:inputType="text" />
+
+        <Button
+            android:id="@+id/registerButton"
+            style="@style/Theme.Base.Button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/rounded_corner"
-            android:elevation="4dp"
-            android:padding="10dp">
+            android:text="S'inscrire" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="10dp">
+        <TextView
+            android:id="@+id/loginTextView"
+            style="@style/Theme.Base.TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:onClick="fLogin_Click"
+            android:text="Se connecter"
+            android:textStyle="normal|bold" />
 
-                <ImageView
-                    android:layout_width="269dp"
-                    android:layout_height="233dp"
-                    android:layout_gravity="center_horizontal"
-                    android:contentDescription="Logo"
-                    android:src="@drawable/logo_base" />
-
-                <EditText
-                    android:id="@+id/firstNameEditText"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:hint="Prénom"
-                    android:inputType="text"
-                    android:padding="10dp" />
-
-                <EditText
-                    android:id="@+id/lastNameEditText"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:hint="Nom de famille"
-                    android:inputType="text"
-                    android:padding="10dp" />
-
-                <EditText
-                    android:id="@+id/usernameEditText"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:hint="Nom d'utilisateur"
-                    android:inputType="text"
-                    android:padding="10dp" />
-
-                <EditText
-                    android:id="@+id/emailEditText"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:hint="Adresse e-mail"
-                    android:inputType="textEmailAddress"
-                    android:padding="10dp" />
-
-                <EditText
-                    android:id="@+id/passwordEditText"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:hint="Mot de passe"
-                    android:inputType="textPassword"
-                    android:padding="10dp" />
-
-                <Button
-                    android:id="@+id/registerButton"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:padding="10dp"
-                    android:text="S'inscrire" />
-
-            </LinearLayout>
-
-        </androidx.cardview.widget.CardView>
-
-    </RelativeLayout>
-
+    </LinearLayout>
+</ScrollView>
 </RelativeLayout>

@@ -5,6 +5,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.EditorInfo
+import android.widget.Button
+import android.widget.EditText
+import android.widget.Toast
+import androidx.fragment.app.FragmentTransaction
 import dev.munderstand.tp1_epsi_mspr_app.R
 
 // TODO: Rename parameter arguments, choose names that match
@@ -34,8 +39,55 @@ class AcceuilFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_acceuil, container, false)
+        val view = inflater.inflate(R.layout.fragment_acceuil, container, false)
+
+        val addressButton: Button = view.findViewById(R.id.addressButton)
+        val emailButton: Button = view.findViewById(R.id.emailButton)
+        val plant1Button: Button = view.findViewById(R.id.plant1Button)
+        val plant2Button: Button = view.findViewById(R.id.plant2Button)
+
+        addressButton.setOnClickListener {
+            changeFragment(BotanistesFragment())
+        }
+
+        emailButton.setOnClickListener {
+            changeFragment(RechercheBotanistFragment())
+        }
+
+        plant1Button.setOnClickListener {
+            changeFragment(MapFragment())
+        }
+
+        plant2Button.setOnClickListener {
+            changeFragment(AccountFragment())
+        }
+
+
+        val searchBar = view.findViewById<EditText>(R.id.searchBar)
+        searchBar.setOnEditorActionListener { _, actionId, _ ->
+            if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+                val searchText = searchBar.text.toString()
+                performSearch(searchText)
+                return@setOnEditorActionListener true
+            }
+            return@setOnEditorActionListener false
+        }
+
+        return view
+    }
+
+
+
+    fun performSearch(query: String) {
+        // Implement your search logic here
+        Toast.makeText(context, "Searching for: $query", Toast.LENGTH_SHORT).show()
+    }
+
+    private fun changeFragment(fragment: Fragment) {
+        parentFragmentManager.beginTransaction()
+            .replace(R.id.content, fragment)
+            .addToBackStack(null)
+            .commit()
     }
 
     companion object {

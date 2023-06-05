@@ -12,7 +12,7 @@
 
     <item
         android:id="@+id/tabCamera"
-
+        android:icon="@drawable/ic_appareil_photo"
         android:title="@string/cam" />
 
 

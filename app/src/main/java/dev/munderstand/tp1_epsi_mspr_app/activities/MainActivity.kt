@@ -36,7 +36,7 @@ class MainActivity : BaseActivity() {
                     true
                 }
                 R.id.tabCamera -> {
-                    // Handle camera placeholder item
+                    replaceFragment(BotanistesFragment())// Handle camera placeholder item
                     true
                 }
                 R.id.tabPlantes -> {
@@ -55,7 +55,7 @@ class MainActivity : BaseActivity() {
 
         // Set the default fragment
         replaceFragment(AcceuilFragment())
-          setHeaderTxt("LOGO")
+          setHeaderTxt("Menu")
          showBack()
           showRight()
     }

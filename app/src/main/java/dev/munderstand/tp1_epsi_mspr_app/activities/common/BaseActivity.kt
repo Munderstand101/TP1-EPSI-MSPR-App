@@ -7,6 +7,7 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 
 import dev.munderstand.tp1_epsi_mspr_app.R
+import dev.munderstand.tp1_epsi_mspr_app.activities.account.ProfilViewActivity
 import dev.munderstand.tp1_epsi_mspr_app.activities.account.SignUpActivity
 
 open class BaseActivity: AppCompatActivity() {
@@ -20,7 +21,9 @@ open class BaseActivity: AppCompatActivity() {
         val imageViewBack=findViewById<ImageView>(R.id.iv_Left_Arrow)
         imageViewBack.visibility=View.VISIBLE
         imageViewBack.setOnClickListener(View.OnClickListener {
-            finish()
+         //   finish()
+            val intent = Intent(this, SettingsActivity::class.java)
+            startActivity(intent)
         })
     }
 
@@ -28,7 +31,7 @@ open class BaseActivity: AppCompatActivity() {
         val imageViewBack = findViewById<ImageView>(R.id.iv_Right_Arrow)
         imageViewBack.visibility = View.VISIBLE
         imageViewBack.setOnClickListener {
-            val intent = Intent(this, SignUpActivity::class.java)
+            val intent = Intent(this, ProfilViewActivity::class.java)
             startActivity(intent)
         }
     }
