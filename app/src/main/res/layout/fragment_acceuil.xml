@@ -1,0 +1,122 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".fragments.AcceuilFragment">
+
+    <include
+        android:id="@+id/header"
+        layout="@layout/layout_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+
+    <!-- Barre de recherche -->
+    <LinearLayout
+        android:id="@+id/bottomMenu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/header"
+        android:layout_margin="10dp"
+        android:background="@drawable/flat_radius_shape">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <!-- Barre de recherche -->
+            <EditText
+                android:id="@+id/searchBar"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textColorHint="@color/white"
+
+                android:hint="Rechercher..."
+                android:padding="10dp"
+                android:layout_margin="15dp"
+                />
+            <!-- Icône utilisateur -->
+            <ImageView
+                android:id="@+id/searchIcon"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:src="@drawable/ic_search_white"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="20dp"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- Menu inférieur divisé en 4 -->
+    <LinearLayout
+        android:id="@+id/bottomMenu2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/bottomMenu"
+        android:padding="50dp">
+
+        <!-- Contenu du menu inférieur -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="4dp"
+                android:layout_margin="8dp"
+                android:layout_weight="1"
+                android:drawableTop="@drawable/ic_adresse_white"
+                android:text="Address"
+                android:background="@drawable/flat_radius_shape"/>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="4dp"
+                android:layout_margin="8dp"
+                android:layout_weight="1"
+                android:drawableTop="@drawable/ic_mail_white"
+                android:text="Email"
+                android:background="@drawable/flat_radius_shape"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="4dp"
+                android:layout_margin="8dp"
+                android:layout_weight="1"
+                android:drawableTop="@drawable/ic_plante_en_pot_white"
+                android:text="Plant 1"
+                android:background="@drawable/flat_radius_shape"/>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="4dp"
+                android:layout_margin="8dp"
+                android:layout_weight="1"
+                android:drawableTop="@drawable/ic_plante_en_pot_white"
+                android:text="Plant 2"
+                android:background="@drawable/flat_radius_shape"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>
